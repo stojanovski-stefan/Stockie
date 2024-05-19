@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stockie | Homepage</title>
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/styles.css" />
+    <!-- jQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="./user.js"></script>
+  </head>
+  <body class="bg-dark text-light">
+    <!-- Navbar -->
+    <nav
+      style="background-color: #395144"
+      class="navbar navbar-expand-lg navbar-dark fixed-top py-3"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="./index.html">Stockie</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="./index.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./pages/developers.html">Developers</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdownMenuLink"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Stocks
+              </a>
+              <ul
+                class="dropdown-menu"
+                aria-labelledby="navbarDropdownMenuLink"
+              >
+                <li>
+                  <a class="dropdown-item" href="./pages/stocks.html">Search</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./pages/exchanges.html"
+                    >Exchanges</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item disabled" href="./pages/news.html">News</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <div class="profile-container">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle profile-dropdown-toggle"
+                  href="#"
+                  id="navbarDropdownProfileLink"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <div class="profile-icon-container">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      fill="currentColor"
+                      class="bi bi-person-circle"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                      <path
+                        fill-rule="evenodd"
+                        d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"
+                      />
+                    </svg>
+                  </div>
+                </a>
+                <ul
+                  class="dropdown-menu dropdown-menu-end"
+                  aria-labelledby="navbarDropdownProfileLink"
+                >
+                  <li><a class="dropdown-item disabled" href="#">My Profile</a></li>
+                  <li><a class="dropdown-item disabled" href="#">Settings</a></li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <a class="dropdown-item" href="./pages/favorites.html"
+                      >Favorites</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="./pages/history.html"
+                      >History</a
+                    >
+                  </li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="#"
+                      onclick="logout((sessionStorage.getItem('username')), sessionStorage.getItem('session'), './final.php')"
+                      >Logout</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Introduction -->
+    <section class="my-5 py-5" id="intro">
+      <div class="container-lg">
+        <div class="row justify-content-center align-items-center">
+          <!-- 12 col of width until med screens, Center until the screen is medium then goes to the left-->
+          <div class="col-md-6 text-center text-md-start pe-3">
+            <h1>
+              <div class="display-2" id="welcomeText1"></div>
+              <div class="display-5 text-muted" id="welcomeText2"></div>
+            </h1>
+            <p class="lead my-4 text-muted" id="welcomeText3"></p>
+            <button
+              style="background-color: #4e6c50; border-color: #4e6c50"
+              class="btn btn-secondary btn-lg me-2"
+              id="signup-button"
+              data-bs-toggle="modal"
+              data-bs-target="#signup-modal"
+            >
+              Sign up!
+            </button>
+            <style>
+              #login-button {
+                color: #aa8b56;
+                border-color: #aa8b56;
+              }
+              #login-button:hover {
+                background-color: #aa8b56;
+                color: white;
+              }
+            </style>
+            <button
+              id="login-button"
+              class="btn btn-outline-secondary btn-lg"
+              data-bs-toggle="modal"
+              data-bs-target="#login-modal"
+            >
+              Log in
+            </button>
+          </div>
+          <!-- center image until small screen, hides on small screen -->
+          <div class="col-md-6 text-center d-none d-md-block">
+            <img
+              style="
+                border-radius: 5em;
+                box-shadow: rgb(0, 0, 0) 0px 22px 70px 4px;
+              "
+              src="./images/bull.png"
+              alt="Book Cover"
+              class="img-fluid"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SIGNUP MODAL
+        NAME INPUT: name
+        USERNAME INPUT: username
+        PASSWORD: password
+    -->
+    <div
+      class="modal fade text-dark"
+      id="signup-modal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Sign Up</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="container h-100">
+              <form>
+                <div id="card" class="m-4">
+                  <div class="text-center mb-3">
+                    <h2 id="sign-up-header" class="display-6">Welcome!</h2>
+                    <p id="signUpErrorMessage" class="text-danger">
+                      User already exists!
+                    </p>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input
+                      required
+                      type="text"
+                      class="form-control"
+                      id="nameInput"
+                      name="name"
+                      placeholder="Name"
+                    />
+                    <label for="nameInput">Name</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input
+                      required
+                      type="text"
+                      class="form-control"
+                      id="usernameInput"
+                      name="username"
+                      placeholder="Username"
+                    />
+                    <label for="usernameInput">Username</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input
+                      required
+                      type="password"
+                      class="form-control"
+                      id="passwordInput"
+                      name="password"
+                      placeholder="Password"
+                    />
+                    <label for="passwordInput">Password</label>
+                  </div>
+                  <!-- SUBMIT BUTTON -->
+                  <button
+                    style="background-color: #4e6c50; border-color: #4e6c50"
+                    class="btn btn-lg btn-primary mb-2 form-control form-control-md"
+                    id="sign-up-submit-button"
+                    type="button"
+                    onclick="signUp($('#nameInput').val(), $('#usernameInput').val(), $('#passwordInput').val())"
+                  >
+                    Sign up
+                  </button>
+                  <div
+                    class="text-center mt-2 mb-2"
+                    data-bs-target="#login-modal"
+                    data-bs-toggle="modal"
+                    data-bs-dismiss="modal"
+                  >
+                    <a style="color: #aa8b56" href=""
+                      >Already have an account?</a
+                    >
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOGIN MODAL -->
+    <div
+      class="modal fade text-dark"
+      id="login-modal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Log In</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="container h-100">
+              <form>
+                <div id="card" class="m-4">
+                  <div class="text-center mb-3">
+                    <h2 id="sign-up-header" class="display-6">Welcome Back!</h2>
+                    <p id="loginErrorMessage" class="text-danger">
+                      Incorrect username or password!
+                    </p>
+                    <p id="signUpSuccess" class="text-success">
+                      Sign up successful! Please log in again.
+                    </p>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input
+                      required
+                      type="text"
+                      class="form-control"
+                      id="loginUsernameInput"
+                      name="login-username"
+                      placeholder="Username"
+                    />
+                    <label for="loginUsernameInput">Username</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input
+                      required
+                      type="password"
+                      class="form-control"
+                      id="loginPasswordInput"
+                      name="login-password"
+                      placeholder="Password"
+                    />
+                    <label for="loginPasswordInput">Password</label>
+                  </div>
+                  <!-- SUBMIT BUTTON -->
+                  <button
+                    style="background-color: #4e6c50; border-color: #4e6c50"
+                    class="btn btn-lg btn-primary mb-2 form-control form-control-md"
+                    id="log-in-submit-button"
+                    type="button"
+                    onclick="login($('#loginUsernameInput').val(), $('#loginPasswordInput').val())"
+                  >
+                    Log In
+                  </button>
+                  <div
+                    class="text-center mt-2 mb-2"
+                    data-bs-target="#signup-modal"
+                    data-bs-toggle="modal"
+                    data-bs-dismiss="modal"
+                  >
+                    <a style="color: #aa8b56" href="">Don't have an account?</a>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- About -->
+    <section
+      class="my-5 py-5 text-dark"
+      style="
+        background-color: #f0ebce;
+        box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px,
+          rgb(17, 17, 26) 0px 8px 24px, rgb(17, 17, 26) 0px 16px 48px;
+      "
+    >
+      <div class="container-lg">
+        <div class="text-center">
+          <h2>Web Applications Programming</h2>
+          <h4 class="text-muted">CSE383 B</h4>
+        </div>
+        <h5>The Course:</h5>
+        <p>
+          CSE 383, Web Applications Programming, is a semester long course
+          offered at Miami University. As part of the computer science core, CSE
+          383 teaches conventional web development strategies and methodologies.
+          The course content consists of, in order: Linux, HTML, CSS, Forms,
+          Bootstrap, Javascript, Jquery, API, Ajax, Cloud servers, PHP, and
+          security. Every week touches on a new topic, and includes new labs and
+          homework assignments.
+        </p>
+        <h5>The Project:</h5>
+        <p>
+          Our final project, the stock application, is a culmination of every
+          methodology we've learned throughout the course. It is not only meant
+          to demonstrate our understanding of fundamental web development
+          concepts, but also our ability to apply it. This application handles
+          user logins, sign-ups, and logouts, and presents a comfortable and
+          convenient interface for managing exchanges and involved stocks. Users
+          are able to freely search through various exchanges and stocks, and
+          are provided with charts, rates, trends, data, and news relating to
+          each stock. The site allows users to add stocks to their favorites
+          list, so as to provide convenient access to them in the future. The
+          user can also view a log of which stocks they've added or removed from
+          their favorites, which updates by the day. Lastly, the application
+          provides a search bar where users can search stocks by ticker if they
+          have specific stocks that they want to find. Thank you for viewing our
+          project!
+        </p>
+      </div>
+    </section>
+
+    <footer class="text-center my-5">
+      <a
+        target="_blank"
+        href="https://gitlab.csi.miamioh.edu/derespmm/cse383_final_project/-/tree/main?ref_type=heads"
+        style="text-decoration: none"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          height="30"
+          fill="white"
+          class="bi bi-github"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"
+          />
+        </svg>
+        <span style="color: white" class="mx-2"
+          >Check out our repository here!</span
+        >
+      </a>
+    </footer>
+
+    <script>
+      $(document).ready(function () {
+        $("#navbarDropdownProfileLink").hide();
+        $("#signUpErrorMessage").hide();
+        $("#loginErrorMessage").hide();
+        $("#signUpSuccess").hide();
+        if (sessionStorage.getItem("session") != null) {
+          $("#navbarDropdownProfileLink").show();
+          $("#login-button").hide();
+          $("#signup-button").hide();
+          $("#welcomeText1").append(
+            "Welcome back, ",
+            sessionStorage.getItem("username"),
+            "!"
+          );
+          $("#welcomeText3").append(
+            "Access your favorites in the top right to continue where you left off."
+          );
+        } else {
+          $("#welcomeText1").append("Welcome to Stockie!");
+          $("#welcomeText2").append(
+            "Manage stocks, exchanges, and trends, completely free of charge"
+          );
+          $("#welcomeText3").append("Log in to access all site features");
+        }
+      });
+    </script>
+
+    <!-- Bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

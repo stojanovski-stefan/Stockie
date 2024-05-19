@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>stockCard</title>
+  </head>
+  <body>
+    <div class="col">
+      <div class="card text-dark" style="background-color: #f0ebce">
+        <div class="card-body container">
+          <div class="row d-flex justify-content-between">
+            <div class="col-9">
+              <blockquote class="blockquote mb-0">
+                <p id="stockName" class="mb-0"></p>
+                <footer id="stockTicker" class="text-muted my-0 py-0"></footer>
+              </blockquote>
+            </div>
+            <div class="col-3 mt-2">
+              <a id="stockCard" data-bs-toggle="modal" data-bs-target="#modal">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="40"
+                  height="40"
+                  fill="currentColor"
+                  class="bi bi-arrow-right"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="modal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-scrollable modal-xl">
+        <div class="modal-content text-dark">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalLabel">Modal title</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body container">
+            <div class="row">
+              <div class="col-lg-12">
+                <h6>About <span id="aboutSectionName">Ticker</span></h6>
+                <p id="aboutSection"></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12">
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <td id="address">
+                        <span class="text-muted">Headquarters: </span><br />
+                      </td>
+                      <td id="employees">
+                        <span class="text-muted">Employees: </span><br />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6">
+                <h6>Chart</h6>
+                <div>
+                  <canvas id="myChart"></canvas>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <h6>Stats</h6>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12">
+                <h6>News</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const ctx = document.getElementById("myChart");
+      const labels = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+      ];
+      const data = {
+        labels: labels,
+        datasets: [
+          {
+            label: "My First Dataset",
+            data: [65, 59, 80, 81, 56, 55, 40],
+            fill: false,
+            borderColor: "rgb(75, 192, 192)",
+            tension: 0.1,
+          },
+        ],
+      };
+
+      const config = {
+        type: "line",
+        data: data,
+      };
+
+      new Chart(ctx, config);
+    </script>
+  </body>
+</html>

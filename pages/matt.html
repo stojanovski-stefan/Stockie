@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stockie | Matt DeRespinis</title>
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/matt.css">
+    <!-- jQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="../user.js"></script>
+  </head>
+  <body class="bg-dark text-light">
+    <nav
+      style="background-color: #395144"
+      class="navbar navbar-expand-lg navbar-dark fixed-top py-3"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="../index.html">Stockie</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown" 
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="../index.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="./developers.html">Developers</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdownMenuLink"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Stocks
+              </a>
+              <ul
+                class="dropdown-menu"
+                aria-labelledby="navbarDropdownMenuLink"
+              >
+                <li>
+                  <a class="dropdown-item" href="./stocks.html">Search</a>
+                </li>
+                <li><a class="dropdown-item" href="#">Exchanges</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item disabled" href="#">News</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <div class="profile-container">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle profile-dropdown-toggle"
+                  href="#"
+                  id="navbarDropdownProfileLink"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <div class="profile-icon-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                      <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                      <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                    </svg>
+                  </div>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownProfileLink">
+                  <li><a class="dropdown-item disabled" href="#">My Profile</a></li>
+                  <li><a class="dropdown-item disabled" href="#">Settings</a></li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li><a class="dropdown-item" href="./favorites.html">Favorites</a></li>
+                  <li><a class="dropdown-item" href="./history.html">History</a></li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li><a class="dropdown-item" href="#" onclick="logout((sessionStorage.getItem('username')), sessionStorage.getItem('session'), '../final.php')">Logout</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container bg-dark text-light" id="me">
+      <div class="row">
+        <h1 class="bg-dark text-light">
+          Welcome to my page!
+        </h1>
+        <div class="col-lg-12" id="meInfo">
+          <h2>
+            Introduction
+          </h2>
+          <p>
+            My name is Matt! I am a second year computer science student at Miami University. 
+          </p>
+          <hr />
+          <h2>
+            Background
+          </h2>
+          <p>
+            I was born in Fresno, California on April 30, 2004. However, I've lived in Springboro, 
+            Ohio since I was 1! For as long as I can remember, I've always had a profound interest in technology. 
+            Having grown up with modern technology such as gaming consoles and mobile phones, I was easily 
+            able to confirm my interests. By middle school, I had already determined that I wanted a future
+            in technology. In my freshman year of high school, I settled on computer science. Three years later, 
+            I found myself applying to many different colleges for computer science. I chose Miami
+            since it was close to home and had a better computer science program than the rest. 
+            Since starting college, I've also began a statistics minor (Which I haven't been enjoying as much 
+            as computer science...)! I'm 20 years old now, and excited to continue creating :)
+          </p>
+          <hr />
+          <h2>
+            Skills and Expertise
+          </h2>
+          <p>
+            Skills prior to CSE 383: Linux, basic HTML, CSS, Bootstrap, Python, Java
+          </p>
+          <p>
+            Skills obtained from CSE 383: Forms, Javascript, Jquery, API, Ajax, and PHP
+          </p>
+          <hr />
+          <h2>
+            My contributions to this project
+          </h2>
+          <p>
+            I primarily dealt with backend functions (except for interacting with the database) and tied a lot of the site together. Some 
+            specific things I handled were the login, logout, and signups. I also checked when the user was logged in, and unlocked specific 
+            page features accordingly. 
+          </p>
+          <hr />
+        </div>
+      </div>
+      <footer>
+        Contact me: derespmm@miamioh.edu
+      </footer>
+    </div>
+    <!-- Bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      $(document).ready(function () {
+        $("#navbarDropdownProfileLink").hide();
+        if (sessionStorage.getItem('session') != null) {
+          $("#navbarDropdownProfileLink").show();
+        }
+      });
+    </script>
+  </body>
+</html>

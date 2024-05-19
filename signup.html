@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stockie | Homepage</title>
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/signup.css">
+
+    <!-- jQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="./user.js"></script>
+</head>
+<body class="bg-dark text-light">
+  <nav
+      style="background-color: #395144"
+      class="navbar navbar-expand-lg navbar-dark fixed-top py-3"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="./index.html">Stockie</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./pages/developers.html">Developers</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdownMenuLink"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Stocks
+              </a>
+              <ul
+                class="dropdown-menu"
+                aria-labelledby="navbarDropdownMenuLink"
+              >
+                <li>
+                  <a class="dropdown-item" href="./pages/stocks.html">Search</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./pages/exchanges.html">Exchanges</a>
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="./pages/news.html">News</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <div class="profile-container">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle profile-dropdown-toggle"
+                  href="#"
+                  id="navbarDropdownProfileLink"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <div class="profile-icon-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                      <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                      <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                    </svg>
+                  </div>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownProfileLink">
+                  <li><a class="dropdown-item" href="#">My Profile</a></li>
+                  <li><a class="dropdown-item" href="#">Settings</a></li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li><a class="dropdown-item" href="#">Favorites</a></li>
+                  <li><a class="dropdown-item" href="#">History</a></li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li><a class="dropdown-item" href="#" onclick="logout((sessionStorage.getItem('username')), sessionStorage.getItem('session'), '../final.php')">Logout</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="login-container">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="card bg-dark text-light">
+            <div class="card-header">
+              <h5 class="card-title">Log In</h5>
+            </div>
+            <div class="card-body">
+              <form id="login-form">
+                <div class="mb-3">
+                  <label for="loginUsernameInput" class="form-label">Username</label>
+                  <input required type="text" class="form-control" id="loginUsernameInput" name="login-username" placeholder="Username">
+                </div>
+                <div class="mb-3">
+                  <label for="loginPasswordInput" class="form-label">Password</label>
+                  <input required type="password" class="form-control" id="loginPasswordInput" name="login-password" placeholder="Password">
+                </div>
+                <div id="loginErrorMessage" class="text-danger d-none">
+                  Incorrect username or password!
+                </div>
+                <div id="signUpSuccess" class="text-success d-none">
+                  Sign up successful! Please log in again.
+                </div>
+                <button style="background-color: #4e6c50; border-color: #4e6c50" class="btn btn-lg btn-primary mb-2 form-control form-control-md" id="log-in-submit-button" type="button" onclick="login($('#loginUsernameInput').val(), $('#loginPasswordInput').val())">Log In</button>
+              </form>
+            </div>
+            <div class="card-footer text-center">
+              <a href="#" style="color: #aa8b56">Don't have an account?</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+  <!-- Bootstrap JS Bundle (Popper.js included) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Your custom script -->
+  <script src="./user.js"></script>
+  <script src="./app.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      $("#navbarDropdownProfileLink").hide();
+      if (sessionStorage.getItem('session') != null) {
+        $("#navbarDropdownProfileLink").show();
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stockie | Stefan Stojanovski</title>
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/styles.css" />
+    <!-- jQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="../user.js"></script>
+  </head>
+  <body class="bg-dark text-light">
+    <nav
+      style="background-color: #395144"
+      class="navbar navbar-expand-lg navbar-dark fixed-top py-3"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="../index.html">Stockie</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="../index.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="./developers.html">Developers</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdownMenuLink"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Stocks
+              </a>
+              <ul
+                class="dropdown-menu"
+                aria-labelledby="navbarDropdownMenuLink"
+              >
+                <li>
+                  <a class="dropdown-item" href="./stocks.html">Search</a>
+                </li>
+                <li><a class="dropdown-item" href="#">Exchanges</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item disabled" href="#">News</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <div class="profile-container">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle profile-dropdown-toggle"
+                  href="#"
+                  id="navbarDropdownProfileLink"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <div class="profile-icon-container">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      fill="currentColor"
+                      class="bi bi-person-circle"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                      <path
+                        fill-rule="evenodd"
+                        d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"
+                      />
+                    </svg>
+                  </div>
+                </a>
+                <ul
+                  class="dropdown-menu dropdown-menu-end"
+                  aria-labelledby="navbarDropdownProfileLink"
+                >
+                  <li><a class="dropdown-item disabled" href="#">My Profile</a></li>
+                  <li><a class="dropdown-item disabled" href="#">Settings</a></li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <a class="dropdown-item" href="./favorites.html"
+                      >Favorites</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="./history.html">History</a>
+                  </li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="#"
+                      onclick="logout((sessionStorage.getItem('username')), sessionStorage.getItem('session'), '../final.php')"
+                      >Logout</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <style>
+      /* Add custom styles here if needed */
+      .profile-img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 1em;
+        box-shadow: rgba(5, 5, 5, 0.771) 0px 50px 100px -20px,
+          rgba(0, 0, 0, 0.7) 0px 30px 60px -30px;
+      }
+    </style>
+
+    <div class="container my-5 py-5">
+      <div class="row">
+        <div class="col-md-4">
+          <!-- Profile Picture -->
+          <img
+            src="../images/stefan.JPG"
+            alt="Profile Picture"
+            class="profile-img mb-5"
+          />
+        </div>
+        <div class="col-md-8">
+          <h2>About Me</h2>
+          <p><strong>Name:</strong> Stefan Stojanovski</p>
+          <p><strong>Email:</strong> stojansz@miamioh.edu</p>
+          <p>
+            <strong>About:</strong> Hey, I'm Stefan! I'm currently in my second
+            year studying computer science at Miami University. I grew up in
+            Columbus, Ohio, with my immigrant parents, and I've been an Ohio
+            resident my whole life. I got into programming back in high school,
+            thanks to my sister's introduction to it during my freshman year.
+            Even then, I knew I wanted to work with computers, and 6 years
+            later, here I am. Besides computer science, I'm into working on
+            cars, lockpicking (which is a relatively new hobby, I'm not that
+            good yet), video games, and pretty much any activity where I can
+            make (or break) something.
+          </p>
+          <h3>Skills Learned From This Project</h3>
+          <ul>
+            <li>Server Administration</li>
+            <li>Server programming with PHP</li>
+            <li>User Authentication</li>
+            <li>Chart.js</li>
+            <li>Working with APIs</li>
+          </ul>
+          <h3>My Contributions to This Project</h3>
+          <p>
+            While Matt and I both worked on the frontend and backend of our
+            application, most of my contributions were frontend focused. I
+            designed the layout for the majority of the webpages, chose the
+            colors, dealt with the responsiveness of our site. I also wrote the
+            majority of the embedded SQL queries since I have had database
+            experience in the past.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <footer class="text-center py-4">
+      <span class="px-2">
+        <a href="https://linkedin.com/in/stefan-stojanovski" target="_blank">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="25"
+            height="25"
+            fill="white"
+            class="bi bi-linkedin"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"
+            />
+          </svg>
+        </a>
+      </span>
+      <span class="px-2">
+        <a href="https://github.com/stojanovski-stefan" target="_blank">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="25"
+            height="25"
+            fill="white"
+            class="bi bi-github"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"
+            />
+          </svg>
+        </a>
+      </span>
+    </footer>
+
+    <!-- Bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      $(document).ready(function () {
+        $("#navbarDropdownProfileLink").hide();
+        if (sessionStorage.getItem("session") != null) {
+          $("#navbarDropdownProfileLink").show();
+        }
+      });
+    </script>
+  </body>
+</html>

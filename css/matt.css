@@ -1,0 +1,33 @@
+#me {
+    margin-top: 100px;
+}
+
+#meInfo {
+    margin-top: 30px;
+}
+
+/* Add custom CSS styles */
+/* Styling for the "Welcome to my page!" header */
+h1 {
+    text-align: center;
+    padding: 20px;
+    background-color: #395144;
+  }
+  
+  /* Styling for the paragraphs under each section */
+  p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: auto;
+  }
+  
+  /* Styling for section headers */
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  footer {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  
